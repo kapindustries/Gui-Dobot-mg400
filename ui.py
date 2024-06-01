@@ -511,14 +511,12 @@ class App(customtkinter.CTk):
         self.update_dobot_frame(positions)
 
     def draw_robot_inversa(self):
-        q = np.array([np.deg2rad(float(self.cinematica_inversa_x.get())),
-                      np.deg2rad(float(self.cinematica_inversa_y.get())),
-                      np.deg2rad(float(self.cinematica_inversa_z.get())),
-                      np.deg2rad(float(self.cinematica_inversa_roll.get()))])
-
-        q_rad = [math.radians(deg) for deg in q]
-
-        q = calcular_cinematica_inversa([0, 0, 0, 0], q_rad)
+        q = np.array([float(self.cinematica_inversa_x.get(),
+                      float(self.cinematica_inversa_y.get(),
+                      float(self.cinematica_inversa_z.get(),
+                      float(self.cinematica_inversa_roll.get()])
+                       
+        q = calcular_cinematica_inversa(q, [0, 0, 0, 0])
 
         joint_q = [math.degrees(rad) for rad in q]
 
